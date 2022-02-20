@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('./models/Thought')
+require('./models/User')
 
 const app = express();
 const PORT = process.env.PORT || 3001;

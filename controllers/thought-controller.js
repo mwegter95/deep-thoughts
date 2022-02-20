@@ -18,4 +18,31 @@ const thoughtController = {
     },
 
     // get one thought by id
+    getThoughtById({ params }, res) {
+        console.log('getThoughtById route called')
+    },
+
+    createThought(req, res) {
+        console.log('createThought route called')
+    },
+
+    updateThought(req, res) {
+        console.log('updateThought route called')
+    },
+
+    deleteThought(req, res) {
+        console.log('deleteThought route called')
+    },
+
+    createReaction(req, res) {
+        console.log('createReaction route called')
+    },
+
+    deleteReaction(req, res) {
+        console.log('deleteReaction route called')
+    }
 }
+
+
+    
+module.exports = thoughtController;
