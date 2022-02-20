@@ -3,7 +3,7 @@ const {
     getAllUsers,
     getUserById,
     createUser,
-    UpdateUser,
+    updateUser,
     deleteUser
 } = require('../../controllers/user-controller');
 
