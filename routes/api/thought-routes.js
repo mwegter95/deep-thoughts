@@ -13,11 +13,18 @@ router
     .get(getAllThoughts)
     .post(createThought);
 
-// /api/thoughts/:id
+// /api/thoughts/:<thoughtId>
 router
     .route('/:id')
     .get(getThoughtById)
     .put(updateThought)
-    .delete(deleteThought);
+    .delete(deleteThought)
+    .post(createReaction);
+
+// /api/thoughts/:<thoughtId>/:<reactionId>
+router
+    .route('/:id')
+    .delete(deleteReaction)
+
 
 module.exports = router;
