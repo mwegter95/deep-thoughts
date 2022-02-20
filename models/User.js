@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 import { isEmail } from 'validator';
 
 
@@ -16,13 +15,30 @@ const UserSchema = new Schema(
             required: true,
             unique: true,
             validate: [isEmail, 'Please enter a valid email'],
+        },
+        thoughts: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Thoughts'
+        }],
+        friends: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }]
+    },
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true
+        },
+        id: false // prevents virtuals from duplicating _id as 'id'
 
-        },
-        thoughts: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Thoughts'
-            }
-            ]
-        },
-)
+    }
+);
+
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length()
+})
+
+const User = model('User', UserSchema)
+
+module.exports = User;
