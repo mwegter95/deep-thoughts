@@ -19,11 +19,18 @@ const thoughtController = {
 
     // get one thought by id
     getThoughtById({ params }, res) {
-        console.log('getThoughtById route called')
+        Thought.findOne({ _id: params.id })
+            .then(dbThoughtData => res.json(dbThoughtData))
+            .catch(err => {
+                console.log(err);
+                res.sendStatus(400);
+            });
     },
 
-    createThought(req, res) {
-        console.log('createThought route called')
+    createThought({ body }, res) {
+        Thought.create(body)
+            .then(dbThoughtData => res.json(dbThoughtData))
+            .catch(err => res.json(err));
     },
 
     updateThought(req, res) {
