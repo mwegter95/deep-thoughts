@@ -15,9 +15,10 @@ This repo contains an app for users to post "thoughts" into a social database us
 
 ## Install Instructions
 
-This application requires Node.js. Download the repository and run 'npm i' to install dependencies. Enter "npm run start" in the terminal (no quotes). This will start the server on a localhost. Then you can test using an api client. 
+This application requires Node.js. Clone the repository or copy the files to your computer. Open the terminal to the directory of the files, type 'npm i' to install dependencies. Enter "npm run start" in the terminal (no quotes). This will start the server on a localhost. Then you can test using an api client. 
   
 ## Usage Instructions
+
 Install modules, then start the server by entering the following in your terminal: 
 
 ```
@@ -28,8 +29,6 @@ If this didn't work, you may need to install MongoDB.
 
 Now that the server is running, you can send requests to the app by using an api client.
 
-### Local
-To run the application locally, open the terminal, install, and run 'npm run start'.
 
 ### Live
 There is no live deployment for this application. Please run locally to test or develop.
