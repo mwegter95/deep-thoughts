@@ -83,8 +83,15 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
 
-    deleteReaction(req, res) {
-        console.log('deleteReaction route called')
+    // the deleteReaction is passed both thought id and reaction id as params
+    deleteReaction({ params }, res) {
+        Thought.findOneAndUpdate(
+            { _id: params.thoughtId },
+            { $pull: {reactions: { reactionId: params.reactionId } } },
+            { new: true }
+            )
+            .then(dbThoughtData => res.json(dbThoughtData))
+            .catch(err => res.json(err));
     }
 }
 
