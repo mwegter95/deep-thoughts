@@ -47,6 +47,33 @@ const userController = {
     // delete User
     deleteUser(req, res) {
         console.log('deleteUser route called')
+    },
+
+    // add friend 
+    // this is requested with both user id of user and of new friend
+    addFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $push: {friends: { _id: params.friendId } } },
+            { new: true }
+        )
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => res.json(err));
+    },
+
+    // delete friend
+    deleteFriend({ params }, res) {
+        console.log(params);
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $pull: {friends: { _id: params.friendId } } },
+            { new: true }
+        )
+            .then(dbUserData => {
+                console.log(dbUserData);
+                res.json(dbUserData)  
+            })
+            .catch(err => res.json(err));
     }
 }
 

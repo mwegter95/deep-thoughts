@@ -83,7 +83,7 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
 
-    // the deleteReaction is passed both thought id and reaction id as params
+    // the deleteReaction function is passed both thought id and reaction id as params, see thought-routes
     deleteReaction({ params }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
